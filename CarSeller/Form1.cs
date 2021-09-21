@@ -24,6 +24,7 @@ namespace CarSeller
 
         public void alphabetOrder()
         {
+            label1.Text = "Cars in alphabetical order";
             Cars = Cars.OrderBy(x => x.Make).ToList();
 
             foreach (Car c in Cars)
