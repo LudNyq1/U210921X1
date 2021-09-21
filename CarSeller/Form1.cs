@@ -37,38 +37,31 @@ namespace CarSeller
         private void button1_Click(object sender, EventArgs e)
         {
             int redCars = Cars.FindAll(x => x.Color == "Red").Count;
-            EventBox.Items.Add("Showed amount of: Red cars");
-            listBox1.Items.Clear();
-            listBox1.Items.Add($"Amount of red cars: {redCars}");
+            EventBox.Items.Add($"Amount of red cars: {redCars}");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             int older2003 = Cars.FindAll(x => x.Year < 2003).Count;
-            EventBox.Items.Add("Showed amount of cars older than 2003");
-            listBox1.Items.Clear();
-            listBox1.Items.Add($"Amount of cars older than 2003: {older2003}");
+            EventBox.Items.Add($"Amount of cars older than 2003: {older2003}");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             int greyVolvo = Cars.FindAll(y => y.Color == "Grey").FindAll(x => x.Make == "Volvo").Count;
-            EventBox.Items.Add("Showed ammount of: Grey Volvo");
-            listBox1.Items.Clear();
-            listBox1.Items.Add($"Amount of grey Volvos: {greyVolvo}");
+            EventBox.Items.Add($"Amount of grey Volvos: {greyVolvo}");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             int kmBMW = Cars.FindAll(y => y.Make == "BMW").Sum(x => x.Km);
-            EventBox.Items.Add("Showed total km driven by: BMW");
-            listBox1.Items.Clear();
-            listBox1.Items.Add($"Kilometers driven by BMW: {kmBMW}");
+            EventBox.Items.Add($"Kilometers driven by BMW: {kmBMW}");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Cars = Cars.OrderByDescending(y => y.Price).ToList();
+            EventBox.Items.Add($"The most expensive car is a {Cars[0].Make} {Cars[0].Model} at ${Cars[0].Price}");
         }
 
         public void addInventory()
