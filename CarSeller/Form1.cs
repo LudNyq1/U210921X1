@@ -18,7 +18,22 @@ namespace CarSeller
         {
             InitializeComponent();
             Cars = new List<Car>();
-            //Existing cars
+            addInventory(); //Adds existing cars
+            alphabetOrder(); //Sorts cars in alpahet order
+        }
+
+        public void alphabetOrder()
+        {
+            Cars = Cars.OrderBy(x => x.Make).ToList();
+
+            foreach (Car c in Cars)
+            {
+                listBox1.Items.Add($"{c.Make}   {c.Model}   {c.Year}");
+            }
+        }
+        public void addInventory()
+        {
+            //Adds existing cars to inventory
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
             Cars.Add(new Car() { Id = 31, Make = "Skoda", Model = "Fabia", Color = "Red", Km = 1292, Price = 76556, Year = 2001 });
             Cars.Add(new Car() { Id = 14, Make = "Volvo", Model = "XC90", Color = "Blue", Km = 432, Price = 32001, Year = 2003 });
@@ -43,8 +58,6 @@ namespace CarSeller
             Cars.Add(new Car() { Id = 6031, Make = "Audi", Model = "A6", Color = "Blue", Km = 553, Price = 55400, Year = 2011 });
         }
     }
-
-
     public class Car
     {
         public int Id { get; set; }
