@@ -24,14 +24,44 @@ namespace CarSeller
 
         public void alphabetOrder()
         {
-            label1.Text = "Cars in alphabetical order";
+            label1.Text = "List of Cars";
             Cars = Cars.OrderBy(x => x.Make).ToList();
 
             foreach (Car c in Cars)
             {
-                listBox1.Items.Add($"{c.Make}   {c.Model}   {c.Year}");
+               listBox1.Items.Add($"{c.Make}   {c.Model}   {c.Year}");
             }
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int redCars = Cars.FindAll(x => x.Color == "Red").Count;
+            EventBox.Items.Add("Showed amount of red cars");
+            listBox1.Items.Clear();
+            listBox1.Items.Add($"Amount of red cars:{redCars}");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void addInventory()
         {
             //Adds existing cars to inventory
