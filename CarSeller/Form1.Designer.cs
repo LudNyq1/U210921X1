@@ -117,7 +117,7 @@ namespace CarSeller
             this.EventBox.ItemHeight = 18;
             this.EventBox.Location = new System.Drawing.Point(603, 43);
             this.EventBox.Name = "EventBox";
-            this.EventBox.Size = new System.Drawing.Size(220, 562);
+            this.EventBox.Size = new System.Drawing.Size(358, 562);
             this.EventBox.TabIndex = 8;
             // 
             // History
@@ -134,7 +134,7 @@ namespace CarSeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 622);
+            this.ClientSize = new System.Drawing.Size(973, 622);
             this.Controls.Add(this.History);
             this.Controls.Add(this.EventBox);
             this.Controls.Add(this.button5);

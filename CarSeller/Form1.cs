@@ -39,17 +39,23 @@ namespace CarSeller
             int redCars = Cars.FindAll(x => x.Color == "Red").Count;
             EventBox.Items.Add("Showed amount of red cars");
             listBox1.Items.Clear();
-            listBox1.Items.Add($"Amount of red cars:{redCars}");
+            listBox1.Items.Add($"Amount of red cars: {redCars}");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            int older2003 = Cars.FindAll(x => x.Year < 2003).Count;
+            EventBox.Items.Add("Showed amount of cars older than 2003");
+            listBox1.Items.Clear();
+            listBox1.Items.Add($"Amount of cars older than 2003: {older2003}");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            int greyVolvo = Cars.FindAll(y => y.Color == "Grey").FindAll(x => x.Make == "Volvo").Count;
+            EventBox.Items.Add("Showed ammount of grey volvo cars");
+            listBox1.Items.Clear();
+            listBox1.Items.Add($"Amount of grey Volvos: {greyVolvo}");
         }
 
         private void button4_Click(object sender, EventArgs e)
