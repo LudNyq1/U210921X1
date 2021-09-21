@@ -37,7 +37,7 @@ namespace CarSeller
         private void button1_Click(object sender, EventArgs e)
         {
             int redCars = Cars.FindAll(x => x.Color == "Red").Count;
-            EventBox.Items.Add("Showed amount of red cars");
+            EventBox.Items.Add("Showed amount of: Red cars");
             listBox1.Items.Clear();
             listBox1.Items.Add($"Amount of red cars: {redCars}");
         }
@@ -53,14 +53,17 @@ namespace CarSeller
         private void button3_Click(object sender, EventArgs e)
         {
             int greyVolvo = Cars.FindAll(y => y.Color == "Grey").FindAll(x => x.Make == "Volvo").Count;
-            EventBox.Items.Add("Showed ammount of grey volvo cars");
+            EventBox.Items.Add("Showed ammount of: Grey Volvo");
             listBox1.Items.Clear();
             listBox1.Items.Add($"Amount of grey Volvos: {greyVolvo}");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            int kmBMW = Cars.FindAll(y => y.Make == "BMW").Sum(x => x.Km);
+            EventBox.Items.Add("Showed total km driven by: BMW");
+            listBox1.Items.Clear();
+            listBox1.Items.Add($"Kilometers driven by BMW: {kmBMW}");
         }
 
         private void button5_Click(object sender, EventArgs e)
