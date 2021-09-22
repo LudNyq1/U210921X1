@@ -47,7 +47,7 @@ namespace CarSeller
             this.listBox1.ItemHeight = 18;
             this.listBox1.Location = new System.Drawing.Point(153, 43);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(444, 562);
+            this.listBox1.Size = new System.Drawing.Size(233, 472);
             this.listBox1.TabIndex = 0;
             // 
             // label1
@@ -66,7 +66,7 @@ namespace CarSeller
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 77);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Red Cars";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -76,7 +76,7 @@ namespace CarSeller
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 77);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Older than 2003";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -86,7 +86,7 @@ namespace CarSeller
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 77);
             this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
+            this.button3.Text = "Grey Volvos";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -96,7 +96,7 @@ namespace CarSeller
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 77);
             this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
+            this.button4.Text = "Mileage BMW";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -106,7 +106,7 @@ namespace CarSeller
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(94, 77);
             this.button5.TabIndex = 7;
-            this.button5.Text = "button5";
+            this.button5.Text = "Most expensive car";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -115,16 +115,16 @@ namespace CarSeller
             this.EventBox.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.EventBox.FormattingEnabled = true;
             this.EventBox.ItemHeight = 18;
-            this.EventBox.Location = new System.Drawing.Point(603, 43);
+            this.EventBox.Location = new System.Drawing.Point(408, 43);
             this.EventBox.Name = "EventBox";
-            this.EventBox.Size = new System.Drawing.Size(358, 562);
+            this.EventBox.Size = new System.Drawing.Size(358, 472);
             this.EventBox.TabIndex = 8;
             // 
             // History
             // 
             this.History.AutoSize = true;
             this.History.Font = new System.Drawing.Font("Century", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.History.Location = new System.Drawing.Point(603, 7);
+            this.History.Location = new System.Drawing.Point(408, 7);
             this.History.Name = "History";
             this.History.Size = new System.Drawing.Size(101, 33);
             this.History.TabIndex = 9;
@@ -134,7 +134,7 @@ namespace CarSeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 622);
+            this.ClientSize = new System.Drawing.Size(780, 530);
             this.Controls.Add(this.History);
             this.Controls.Add(this.EventBox);
             this.Controls.Add(this.button5);

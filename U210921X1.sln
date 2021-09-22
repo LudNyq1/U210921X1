@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSeller", "CarSeller\CarSeller.csproj", "{A5776A6E-A18A-4BB5-9332-498F61833E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarSeller", "CarSeller\CarSeller.csproj", "{A5776A6E-A18A-4BB5-9332-498F61833E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSeller V2", "CarSeller V2\CarSeller V2.csproj", "{D2433DDC-8E01-4393-9340-B72D4B472483}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A5776A6E-A18A-4BB5-9332-498F61833E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5776A6E-A18A-4BB5-9332-498F61833E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5776A6E-A18A-4BB5-9332-498F61833E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2433DDC-8E01-4393-9340-B72D4B472483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2433DDC-8E01-4393-9340-B72D4B472483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2433DDC-8E01-4393-9340-B72D4B472483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2433DDC-8E01-4393-9340-B72D4B472483}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

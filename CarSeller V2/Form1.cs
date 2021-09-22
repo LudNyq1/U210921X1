@@ -8,64 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarSeller
+namespace CarSeller_V2
 {
+    
     public partial class Form1 : Form
     {
-
         List<Car> Cars;
         public Form1()
         {
             InitializeComponent();
-            Cars = new List<Car>();
-            addInventory(); //Adds existing cars
-            alphabetOrder(); //Sorts cars in alpahet order
+            addExistingCars(); //Adds existing cars
         }
 
-        public void alphabetOrder()
-        {
-            label1.Text = "List of Cars";
-            Cars = Cars.OrderBy(x => x.Make).ToList();
 
-            foreach (Car c in Cars)
-            {
-               listBox1.Items.Add($"{c.Make}   {c.Model}   {c.Year}");
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void addExistingCars()
         {
-            int redCars = Cars.FindAll(x => x.Color == "Red").Count;
-            EventBox.Items.Add($"Amount of red cars: {redCars}");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int older2003 = Cars.FindAll(x => x.Year < 2003).Count;
-            EventBox.Items.Add($"Amount of cars older than 2003: {older2003}");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int greyVolvo = Cars.FindAll(y => y.Color == "Grey").FindAll(x => x.Make == "Volvo").Count;
-            EventBox.Items.Add($"Amount of grey Volvos: {greyVolvo}");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            double kmBMW = Cars.FindAll(y => y.Make == "BMW").Average(x => x.Km);
-            EventBox.Items.Add($"Kilometers driven by BMW: {kmBMW}");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Cars = Cars.OrderByDescending(y => y.Price).ToList();
-            EventBox.Items.Add($"The most expensive car is a {Cars[0].Make} {Cars[0].Model} at ${Cars[0].Price}");
-        }
-
-        public void addInventory()
-        {
-            //Adds existing cars to inventory
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
             Cars.Add(new Car() { Id = 31, Make = "Skoda", Model = "Fabia", Color = "Red", Km = 1292, Price = 76556, Year = 2001 });
             Cars.Add(new Car() { Id = 14, Make = "Volvo", Model = "XC90", Color = "Blue", Km = 432, Price = 32001, Year = 2003 });
@@ -90,15 +47,4 @@ namespace CarSeller
             Cars.Add(new Car() { Id = 6031, Make = "Audi", Model = "A6", Color = "Blue", Km = 553, Price = 55400, Year = 2011 });
         }
     }
-    public class Car
-    {
-        public int Id { get; set; }
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public string Color { get; set; }
-        public int Km { get; set; }
-        public int Price { get; set; }
-        public int Year { get; set; }
-    }
-
 }
