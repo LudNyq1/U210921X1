@@ -16,12 +16,16 @@ namespace CarSeller_V2
         List<Car> Cars;
         public Form1()
         {
+            Cars = new List<Car>();
             InitializeComponent();
-            addExistingCars(); //Adds existing cars
+            addExistingCars(); //Adds existing cars and sorts them in alphabetical order inside listBox_Cars
+
+
+
         }
 
 
-        public void addExistingCars()
+        public void addExistingCars() //List of existing cars
         {
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
             Cars.Add(new Car() { Id = 31, Make = "Skoda", Model = "Fabia", Color = "Red", Km = 1292, Price = 76556, Year = 2001 });
@@ -45,6 +49,23 @@ namespace CarSeller_V2
             Cars.Add(new Car() { Id = 991, Make = "Volvo", Model = "V70", Color = "Red", Km = 3475, Price = 14512, Year = 1998 });
             Cars.Add(new Car() { Id = 801, Make = "Audi", Model = "A7", Color = "White", Km = 492, Price = 187500, Year = 2002 });
             Cars.Add(new Car() { Id = 6031, Make = "Audi", Model = "A6", Color = "Blue", Km = 553, Price = 55400, Year = 2011 });
+
+            foreach (Car c in Cars.OrderBy(x => x.Make)) //Adds all Car objects in cars sorted in alphabetical order to listBox Cars
+            {
+                listBox_Cars.Items.Add(c);
+            }
+        }
+
+        private void listBox_Cars_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Car selectedCar = (sender as ListBox).SelectedItem as Car; //Konverterrar 
+            textBox_ID.Text = (selectedCar.Id).ToString();
+            textBox_Make.Text = selectedCar.Make;
+            textBox_Model.Text = selectedCar.Model;
+            textBox_Color.Text = selectedCar.Color;
+            textBox_Km.Text = (selectedCar.Km).ToString();
+            textBox_Price.Text = $"{(selectedCar.Price)}kr";
+            textBox_Year.Text = (selectedCar.Year).ToString();
         }
     }
 }

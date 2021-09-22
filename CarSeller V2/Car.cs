@@ -13,5 +13,12 @@ namespace CarSeller_V2
         public int Km { get; set; }
         public int Price { get; set; }
         public int Year { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Make} {Model}";
+        }
     }
+
+
 }

@@ -46,6 +46,8 @@ namespace CarSeller_V2
             this.Year_label = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox_Cars
@@ -56,6 +58,7 @@ namespace CarSeller_V2
             this.listBox_Cars.Name = "listBox_Cars";
             this.listBox_Cars.Size = new System.Drawing.Size(193, 244);
             this.listBox_Cars.TabIndex = 0;
+            this.listBox_Cars.SelectedIndexChanged += new System.EventHandler(this.listBox_Cars_SelectedIndexChanged);
             // 
             // ID_label
             // 
@@ -189,11 +192,31 @@ namespace CarSeller_V2
             this.label1.TabIndex = 20;
             this.label1.Text = "List of Cars";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(506, 44);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(506, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(178, 32);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Car Properties";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox_Year);
@@ -237,6 +260,8 @@ namespace CarSeller_V2
         private System.Windows.Forms.Label Year_label;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
