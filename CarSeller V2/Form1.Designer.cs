@@ -199,6 +199,7 @@ namespace CarSeller_V2
             // 
             // comboBoxColors
             // 
+            this.comboBoxColors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxColors.FormattingEnabled = true;
             this.comboBoxColors.Location = new System.Drawing.Point(462, 43);
             this.comboBoxColors.Name = "comboBoxColors";

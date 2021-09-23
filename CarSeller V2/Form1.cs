@@ -94,13 +94,14 @@ namespace CarSeller_V2
             int i = findCar();
 
             Cars[i].Make = textBox_Make.Text.ToUpper();
-            Cars[i].Model = textBox_Model.Text;
+            Cars[i].Model = textBox_Model.Text.ToUpper();
             Cars[i].Color = textBox_Color.Text.ToUpper();
             Cars[i].Price = int.Parse(textBox_Price.Text);
             Cars[i].Km = int.Parse(textBox_Km.Text);
             Cars[i].Year = int.Parse(textBox_Year.Text);
             refreshComboBox();
             refreshListBox();
+            
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -118,7 +119,6 @@ namespace CarSeller_V2
         public void refreshListBox()
         {
             listBox_Cars.Items.Clear();
-            comboBoxColors.Items.Clear();
 
             foreach (Car c in Cars.OrderBy(x => x.Make).ThenBy( y => y.Model).ThenBy(z => z.Year)) //Adds all Car objects in cars sorted in alphabetical order to listBox Cars
             {
@@ -132,9 +132,9 @@ namespace CarSeller_V2
         {
             comboBoxColors.Items.Clear();
 
-            foreach (string c in Cars.Select(x => x.Color).Distinct()) //Adds all the uniqe colors to comboBoxColors
+            foreach (string c in Cars.Select(x => x.Color.ToUpper()).Distinct()) //Adds all the uniqe colors to comboBoxColors
             {
-                comboBoxColors.Items.Add(c.ToUpper());
+                comboBoxColors.Items.Add(c);
             }
         }
 
@@ -196,9 +196,9 @@ namespace CarSeller_V2
                 textBox_ID.Enabled = false;
                 enableButton();
             }
-            catch (FormatException anka)
+            catch (FormatException)
             {
-                MessageBox.Show("If");
+                MessageBox.Show("Error: False input, check if\n entered");
             }
         }
 
