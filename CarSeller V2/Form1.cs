@@ -22,8 +22,6 @@ namespace CarSeller_V2
 
 
         }
-
-
         public void initializeProgramMethods() //List of existing cars, fills listbox and combobox with related content
         {
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
@@ -91,6 +89,17 @@ namespace CarSeller_V2
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            foreach (Control c in Controls)
+            {
+                if (c is TextBox)
+                {
+                    if (c.Text == string.Empty)
+                    {
+                        MessageBox.Show("Error: Empty Inputs");
+                        return;
+                    }
+                }
+            }
             int i = findCar();
 
             Cars[i].Make = textBox_Make.Text.ToUpper();
@@ -99,9 +108,10 @@ namespace CarSeller_V2
             Cars[i].Price = int.Parse(textBox_Price.Text);
             Cars[i].Km = int.Parse(textBox_Km.Text);
             Cars[i].Year = int.Parse(textBox_Year.Text);
-            refreshComboBox();
-            refreshListBox();
             
+            refreshListBox();
+            refreshComboBox();
+
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -128,7 +138,7 @@ namespace CarSeller_V2
 
         }
 
-        public void refreshComboBox()
+        public void refreshComboBox() //Refreshes the combobox with new added values
         {
             comboBoxColors.Items.Clear();
 
@@ -173,6 +183,17 @@ namespace CarSeller_V2
 
             try
             {
+                foreach (Control c in Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        if (c.Text == string.Empty)
+                        {
+                            MessageBox.Show("Error: Empty Inputs");
+                            return;
+                        }
+                    }
+                }
                 if (Cars.Select(x => x.Id).Contains(int.Parse(textBox_ID.Text))) //Checks if the entered cars id already exists, if it does does not add.
                 {
                     MessageBox.Show("ID already exists");
@@ -192,6 +213,7 @@ namespace CarSeller_V2
                     });
                     clearTextBox(this);
                     refreshListBox();
+                    refreshComboBox();
                 }
                 textBox_ID.Enabled = false;
                 enableButton();
