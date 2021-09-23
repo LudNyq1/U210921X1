@@ -18,14 +18,13 @@ namespace CarSeller_V2
         {
             Cars = new List<Car>();
             InitializeComponent();
-            addExistingCars(); //Adds existing cars and sorts them in alphabetical order inside listBox_Cars
-
+            initializeProgramMethods(); //Adds existing cars and sorts them in alphabetical order inside listBox_Cars
 
 
         }
 
 
-        public void addExistingCars() //List of existing cars
+        public void initializeProgramMethods() //List of existing cars, fills listbox and combobox with related content
         {
             Cars.Add(new Car() { Id = 1, Make = "Volvo", Model = "V70", Color = "White", Km = 1292, Price = 3465, Year = 1998 });
             Cars.Add(new Car() { Id = 31, Make = "Skoda", Model = "Fabia", Color = "Red", Km = 1292, Price = 76556, Year = 2001 });
@@ -54,6 +53,11 @@ namespace CarSeller_V2
             {
                 listBox_Cars.Items.Add(c);
             }
+
+            foreach (string c in Cars.Select(x => x.Color).Distinct()) //Adds all the uniqe colors to comboBoxColors
+            {
+                comboBoxColors.Items.Add(c);
+            }
         }
 
         private void listBox_Cars_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,6 +70,77 @@ namespace CarSeller_V2
             textBox_Km.Text = (selectedCar.Km).ToString();
             textBox_Price.Text = $"{(selectedCar.Price)}kr";
             textBox_Year.Text = (selectedCar.Year).ToString();
+        }
+
+        private void comboBoxColors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBoxColors.Items.Clear();
+            string selectedColor = (sender as ComboBox).SelectedItem.ToString();
+
+            foreach (Car c in Cars) //Only adds the cars that have the color selectedColor as attribute, to listBoxColors
+            {
+                if (c.Color == selectedColor)
+                {
+                    listBoxColors.Items.Add(c);
+                }
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            int i = findCar();
+
+            Cars[i].Price = int.Parse(textBox_Price.Text);
+            Cars[i].Km = int.Parse(textBox_Km.Text);
+        }
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            Cars.RemoveAt(findCar());
+            refreshListBox();
+            clearTextBox(this);
+        }
+        public int findCar() //Finds the index of the Cars-object with user-entered id
+        {
+            return Cars.FindIndex(x => x.Id == int.Parse(textBox_ID.Text));
+        }
+
+        public void refreshListBox()
+        {
+            listBox_Cars.Items.Clear();
+            comboBoxColors.Items.Clear();
+
+            foreach (Car c in Cars.OrderBy(x => x.Make)) //Adds all Car objects in cars sorted in alphabetical order to listBox Cars
+            {
+                listBox_Cars.Items.Add(c);
+            }
+
+            foreach (string c in Cars.Select(x => x.Color).Distinct()) //Adds all the uniqe colors to comboBoxColors
+            {
+                comboBoxColors.Items.Add(c);
+            }
+        }
+
+        public void clearTextBox(Control con) //Clear all the textboxes under "Car properties" section
+        {
+
+            foreach (Control c in con.Controls) //This code clear the textboxes
+            {
+                if (c is TextBox)
+                {
+                    ((TextBox)c).Clear();
+                }
+                else
+                {
+                    clearTextBox(c);
+                }
+            }
+            textBox_ID.Clear();
+            textBox_Make.Clear();
+            textBox_Model.Clear();
+            textBox_Color.Clear();
+            textBox_Km.Clear();
+            textBox_Price.Clear();
+            textBox_Year.Clear();
         }
     }
 }

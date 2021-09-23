@@ -46,8 +46,11 @@ namespace CarSeller_V2
             this.Year_label = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxColors = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.listBoxColors = new System.Windows.Forms.ListBox();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox_Cars
@@ -192,31 +195,64 @@ namespace CarSeller_V2
             this.label1.TabIndex = 20;
             this.label1.Text = "List of Cars";
             // 
-            // comboBox1
+            // comboBoxColors
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(506, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 21;
+            this.comboBoxColors.FormattingEnabled = true;
+            this.comboBoxColors.Location = new System.Drawing.Point(413, 36);
+            this.comboBoxColors.Name = "comboBoxColors";
+            this.comboBoxColors.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxColors.TabIndex = 21;
+            this.comboBoxColors.SelectedIndexChanged += new System.EventHandler(this.comboBoxColors_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(506, 9);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(413, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 32);
+            this.label2.Size = new System.Drawing.Size(115, 25);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Car Properties";
+            this.label2.Text = "Select color";
+            // 
+            // listBoxColors
+            // 
+            this.listBoxColors.FormattingEnabled = true;
+            this.listBoxColors.ItemHeight = 20;
+            this.listBoxColors.Location = new System.Drawing.Point(413, 77);
+            this.listBoxColors.Name = "listBoxColors";
+            this.listBoxColors.Size = new System.Drawing.Size(150, 204);
+            this.listBoxColors.TabIndex = 23;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(267, 275);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(94, 29);
+            this.buttonSave.TabIndex = 30;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Location = new System.Drawing.Point(267, 310);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(94, 29);
+            this.buttonRemove.TabIndex = 31;
+            this.buttonRemove.Text = "RemoveCar";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRemove);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.listBoxColors);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxColors);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox_Year);
@@ -260,8 +296,11 @@ namespace CarSeller_V2
         private System.Windows.Forms.Label Year_label;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxColors;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox listBoxColors;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonRemove;
     }
 }
 
