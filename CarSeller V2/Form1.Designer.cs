@@ -51,6 +51,8 @@ namespace CarSeller_V2
             this.listBoxColors = new System.Windows.Forms.ListBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonNewCar = new System.Windows.Forms.Button();
+            this.buttonAddNewCar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox_Cars
@@ -59,14 +61,14 @@ namespace CarSeller_V2
             this.listBox_Cars.ItemHeight = 20;
             this.listBox_Cars.Location = new System.Drawing.Point(12, 44);
             this.listBox_Cars.Name = "listBox_Cars";
-            this.listBox_Cars.Size = new System.Drawing.Size(193, 244);
+            this.listBox_Cars.Size = new System.Drawing.Size(242, 344);
             this.listBox_Cars.TabIndex = 0;
             this.listBox_Cars.SelectedIndexChanged += new System.EventHandler(this.listBox_Cars_SelectedIndexChanged);
             // 
             // ID_label
             // 
             this.ID_label.AutoSize = true;
-            this.ID_label.Location = new System.Drawing.Point(211, 47);
+            this.ID_label.Location = new System.Drawing.Point(260, 54);
             this.ID_label.Name = "ID_label";
             this.ID_label.Size = new System.Drawing.Size(24, 20);
             this.ID_label.TabIndex = 1;
@@ -74,14 +76,14 @@ namespace CarSeller_V2
             // 
             // textBox_ID
             // 
-            this.textBox_ID.Location = new System.Drawing.Point(267, 44);
+            this.textBox_ID.Location = new System.Drawing.Point(316, 51);
             this.textBox_ID.Name = "textBox_ID";
             this.textBox_ID.Size = new System.Drawing.Size(125, 27);
             this.textBox_ID.TabIndex = 6;
             // 
             // textBox_Make
             // 
-            this.textBox_Make.Location = new System.Drawing.Point(267, 77);
+            this.textBox_Make.Location = new System.Drawing.Point(316, 84);
             this.textBox_Make.Name = "textBox_Make";
             this.textBox_Make.Size = new System.Drawing.Size(125, 27);
             this.textBox_Make.TabIndex = 8;
@@ -89,7 +91,7 @@ namespace CarSeller_V2
             // Make_label
             // 
             this.Make_label.AutoSize = true;
-            this.Make_label.Location = new System.Drawing.Point(211, 80);
+            this.Make_label.Location = new System.Drawing.Point(260, 87);
             this.Make_label.Name = "Make_label";
             this.Make_label.Size = new System.Drawing.Size(45, 20);
             this.Make_label.TabIndex = 7;
@@ -97,7 +99,7 @@ namespace CarSeller_V2
             // 
             // textBox_Model
             // 
-            this.textBox_Model.Location = new System.Drawing.Point(267, 110);
+            this.textBox_Model.Location = new System.Drawing.Point(316, 117);
             this.textBox_Model.Name = "textBox_Model";
             this.textBox_Model.Size = new System.Drawing.Size(125, 27);
             this.textBox_Model.TabIndex = 10;
@@ -105,7 +107,7 @@ namespace CarSeller_V2
             // Model_label
             // 
             this.Model_label.AutoSize = true;
-            this.Model_label.Location = new System.Drawing.Point(211, 113);
+            this.Model_label.Location = new System.Drawing.Point(260, 120);
             this.Model_label.Name = "Model_label";
             this.Model_label.Size = new System.Drawing.Size(52, 20);
             this.Model_label.TabIndex = 9;
@@ -113,7 +115,7 @@ namespace CarSeller_V2
             // 
             // textBox_Color
             // 
-            this.textBox_Color.Location = new System.Drawing.Point(267, 143);
+            this.textBox_Color.Location = new System.Drawing.Point(316, 150);
             this.textBox_Color.Name = "textBox_Color";
             this.textBox_Color.Size = new System.Drawing.Size(125, 27);
             this.textBox_Color.TabIndex = 12;
@@ -121,7 +123,7 @@ namespace CarSeller_V2
             // Color_label
             // 
             this.Color_label.AutoSize = true;
-            this.Color_label.Location = new System.Drawing.Point(211, 146);
+            this.Color_label.Location = new System.Drawing.Point(260, 153);
             this.Color_label.Name = "Color_label";
             this.Color_label.Size = new System.Drawing.Size(45, 20);
             this.Color_label.TabIndex = 11;
@@ -129,7 +131,7 @@ namespace CarSeller_V2
             // 
             // textBox_Km
             // 
-            this.textBox_Km.Location = new System.Drawing.Point(267, 176);
+            this.textBox_Km.Location = new System.Drawing.Point(316, 183);
             this.textBox_Km.Name = "textBox_Km";
             this.textBox_Km.Size = new System.Drawing.Size(125, 27);
             this.textBox_Km.TabIndex = 14;
@@ -137,7 +139,7 @@ namespace CarSeller_V2
             // Km_label
             // 
             this.Km_label.AutoSize = true;
-            this.Km_label.Location = new System.Drawing.Point(211, 179);
+            this.Km_label.Location = new System.Drawing.Point(260, 186);
             this.Km_label.Name = "Km_label";
             this.Km_label.Size = new System.Drawing.Size(31, 20);
             this.Km_label.TabIndex = 13;
@@ -145,7 +147,7 @@ namespace CarSeller_V2
             // 
             // textBox_Price
             // 
-            this.textBox_Price.Location = new System.Drawing.Point(267, 209);
+            this.textBox_Price.Location = new System.Drawing.Point(316, 216);
             this.textBox_Price.Name = "textBox_Price";
             this.textBox_Price.Size = new System.Drawing.Size(125, 27);
             this.textBox_Price.TabIndex = 16;
@@ -153,15 +155,15 @@ namespace CarSeller_V2
             // Price_label
             // 
             this.Price_label.AutoSize = true;
-            this.Price_label.Location = new System.Drawing.Point(211, 212);
+            this.Price_label.Location = new System.Drawing.Point(260, 219);
             this.Price_label.Name = "Price_label";
-            this.Price_label.Size = new System.Drawing.Size(41, 20);
+            this.Price_label.Size = new System.Drawing.Size(53, 20);
             this.Price_label.TabIndex = 15;
-            this.Price_label.Text = "Price";
+            this.Price_label.Text = "Price $";
             // 
             // textBox_Year
             // 
-            this.textBox_Year.Location = new System.Drawing.Point(267, 242);
+            this.textBox_Year.Location = new System.Drawing.Point(316, 249);
             this.textBox_Year.Name = "textBox_Year";
             this.textBox_Year.Size = new System.Drawing.Size(125, 27);
             this.textBox_Year.TabIndex = 18;
@@ -169,7 +171,7 @@ namespace CarSeller_V2
             // Year_label
             // 
             this.Year_label.AutoSize = true;
-            this.Year_label.Location = new System.Drawing.Point(211, 245);
+            this.Year_label.Location = new System.Drawing.Point(260, 252);
             this.Year_label.Name = "Year_label";
             this.Year_label.Size = new System.Drawing.Size(37, 20);
             this.Year_label.TabIndex = 17;
@@ -179,7 +181,7 @@ namespace CarSeller_V2
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(212, 9);
+            this.label8.Location = new System.Drawing.Point(261, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(178, 32);
             this.label8.TabIndex = 19;
@@ -198,7 +200,7 @@ namespace CarSeller_V2
             // comboBoxColors
             // 
             this.comboBoxColors.FormattingEnabled = true;
-            this.comboBoxColors.Location = new System.Drawing.Point(413, 36);
+            this.comboBoxColors.Location = new System.Drawing.Point(462, 43);
             this.comboBoxColors.Name = "comboBoxColors";
             this.comboBoxColors.Size = new System.Drawing.Size(151, 28);
             this.comboBoxColors.TabIndex = 21;
@@ -208,7 +210,7 @@ namespace CarSeller_V2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(413, 11);
+            this.label2.Location = new System.Drawing.Point(462, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 25);
             this.label2.TabIndex = 22;
@@ -218,16 +220,16 @@ namespace CarSeller_V2
             // 
             this.listBoxColors.FormattingEnabled = true;
             this.listBoxColors.ItemHeight = 20;
-            this.listBoxColors.Location = new System.Drawing.Point(413, 77);
+            this.listBoxColors.Location = new System.Drawing.Point(462, 84);
             this.listBoxColors.Name = "listBoxColors";
             this.listBoxColors.Size = new System.Drawing.Size(150, 204);
             this.listBoxColors.TabIndex = 23;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(267, 275);
+            this.buttonSave.Location = new System.Drawing.Point(316, 286);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(94, 29);
+            this.buttonSave.Size = new System.Drawing.Size(109, 29);
             this.buttonSave.TabIndex = 30;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -235,19 +237,41 @@ namespace CarSeller_V2
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(267, 310);
+            this.buttonRemove.Location = new System.Drawing.Point(316, 321);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(94, 29);
+            this.buttonRemove.Size = new System.Drawing.Size(109, 29);
             this.buttonRemove.TabIndex = 31;
-            this.buttonRemove.Text = "RemoveCar";
+            this.buttonRemove.Text = "Remove Car";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
+            // buttonNewCar
+            // 
+            this.buttonNewCar.Location = new System.Drawing.Point(316, 356);
+            this.buttonNewCar.Name = "buttonNewCar";
+            this.buttonNewCar.Size = new System.Drawing.Size(109, 29);
+            this.buttonNewCar.TabIndex = 32;
+            this.buttonNewCar.Text = "New Car";
+            this.buttonNewCar.UseVisualStyleBackColor = true;
+            this.buttonNewCar.Click += new System.EventHandler(this.buttonNewCar_Click);
+            // 
+            // buttonAddNewCar
+            // 
+            this.buttonAddNewCar.Location = new System.Drawing.Point(431, 356);
+            this.buttonAddNewCar.Name = "buttonAddNewCar";
+            this.buttonAddNewCar.Size = new System.Drawing.Size(109, 29);
+            this.buttonAddNewCar.TabIndex = 33;
+            this.buttonAddNewCar.Text = "Add New Car";
+            this.buttonAddNewCar.UseVisualStyleBackColor = true;
+            this.buttonAddNewCar.Click += new System.EventHandler(this.buttonAddNewCar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAddNewCar);
+            this.Controls.Add(this.buttonNewCar);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listBoxColors);
@@ -301,6 +325,8 @@ namespace CarSeller_V2
         private System.Windows.Forms.ListBox listBoxColors;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonNewCar;
+        private System.Windows.Forms.Button buttonAddNewCar;
     }
 }
 

@@ -56,30 +56,33 @@ namespace CarSeller_V2
 
             foreach (string c in Cars.Select(x => x.Color).Distinct()) //Adds all the uniqe colors to comboBoxColors
             {
-                comboBoxColors.Items.Add(c);
+                comboBoxColors.Items.Add(c.ToUpper());
             }
+
+            textBox_ID.Enabled = false;
+            enableButton();
         }
 
         private void listBox_Cars_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Car selectedCar = (sender as ListBox).SelectedItem as Car; //Konverterrar 
+            Car selectedCar = (sender as ListBox).SelectedItem as Car; //Konverterar sender till listbox och sen till Car objekt.
             textBox_ID.Text = (selectedCar.Id).ToString();
-            textBox_Make.Text = selectedCar.Make;
+            textBox_Make.Text = selectedCar.Make.ToUpper();
             textBox_Model.Text = selectedCar.Model;
-            textBox_Color.Text = selectedCar.Color;
+            textBox_Color.Text = selectedCar.Color.ToUpper();
             textBox_Km.Text = (selectedCar.Km).ToString();
-            textBox_Price.Text = $"{(selectedCar.Price)}kr";
+            textBox_Price.Text = (selectedCar.Price).ToString();
             textBox_Year.Text = (selectedCar.Year).ToString();
         }
 
         private void comboBoxColors_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxColors.Items.Clear();
-            string selectedColor = (sender as ComboBox).SelectedItem.ToString();
+            string selectedColor = (sender as ComboBox).SelectedItem.ToString().ToUpper();
 
             foreach (Car c in Cars) //Only adds the cars that have the color selectedColor as attribute, to listBoxColors
             {
-                if (c.Color == selectedColor)
+                if (c.Color.ToUpper() == selectedColor)
                 {
                     listBoxColors.Items.Add(c);
                 }
@@ -90,14 +93,22 @@ namespace CarSeller_V2
         {
             int i = findCar();
 
+            Cars[i].Make = textBox_Make.Text.ToUpper();
+            Cars[i].Model = textBox_Model.Text;
+            Cars[i].Color = textBox_Color.Text.ToUpper();
             Cars[i].Price = int.Parse(textBox_Price.Text);
             Cars[i].Km = int.Parse(textBox_Km.Text);
+            Cars[i].Year = int.Parse(textBox_Year.Text);
+            refreshComboBox();
+            refreshListBox();
         }
+
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             Cars.RemoveAt(findCar());
             refreshListBox();
             clearTextBox(this);
+            refreshComboBox();
         }
         public int findCar() //Finds the index of the Cars-object with user-entered id
         {
@@ -109,21 +120,28 @@ namespace CarSeller_V2
             listBox_Cars.Items.Clear();
             comboBoxColors.Items.Clear();
 
-            foreach (Car c in Cars.OrderBy(x => x.Make)) //Adds all Car objects in cars sorted in alphabetical order to listBox Cars
+            foreach (Car c in Cars.OrderBy(x => x.Make).ThenBy( y => y.Model).ThenBy(z => z.Year)) //Adds all Car objects in cars sorted in alphabetical order to listBox Cars
             {
                 listBox_Cars.Items.Add(c);
             }
 
+
+        }
+
+        public void refreshComboBox()
+        {
+            comboBoxColors.Items.Clear();
+
             foreach (string c in Cars.Select(x => x.Color).Distinct()) //Adds all the uniqe colors to comboBoxColors
             {
-                comboBoxColors.Items.Add(c);
+                comboBoxColors.Items.Add(c.ToUpper());
             }
         }
 
         public void clearTextBox(Control con) //Clear all the textboxes under "Car properties" section
         {
 
-            foreach (Control c in con.Controls) //This code clear the textboxes
+            foreach (Control c in con.Controls) //This code clear the textboxes under Car Properties
             {
                 if (c is TextBox)
                 {
@@ -134,13 +152,67 @@ namespace CarSeller_V2
                     clearTextBox(c);
                 }
             }
-            textBox_ID.Clear();
-            textBox_Make.Clear();
-            textBox_Model.Clear();
-            textBox_Color.Clear();
-            textBox_Km.Clear();
-            textBox_Price.Clear();
-            textBox_Year.Clear();
+
+            //textBox_ID.Clear();
+            //textBox_Make.Clear();
+            //textBox_Model.Clear();
+            //textBox_Color.Clear();
+            //textBox_Km.Clear();
+            //textBox_Price.Clear();
+            //textBox_Year.Clear();
         }
+        private void buttonNewCar_Click(object sender, EventArgs e)
+        {
+            clearTextBox(this);
+            textBox_ID.Enabled = true;
+            enableButton();
+        }
+
+        private void buttonAddNewCar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (Cars.Select(x => x.Id).Contains(int.Parse(textBox_ID.Text))) //Checks if the entered cars id already exists, if it does does not add.
+                {
+                    MessageBox.Show("ID already exists");
+                }
+                else
+                {
+
+                    Cars.Add(new Car() //Adds new car with user input attributes
+                    {
+                        Id = int.Parse(textBox_ID.Text),
+                        Make = textBox_Make.Text,
+                        Model = textBox_Model.Text,
+                        Color = textBox_Color.Text,
+                        Km = int.Parse(textBox_Km.Text),
+                        Price = int.Parse(textBox_Price.Text),
+                        Year = int.Parse(textBox_Year.Text)
+                    });
+                    clearTextBox(this);
+                    refreshListBox();
+                }
+                textBox_ID.Enabled = false;
+                enableButton();
+            }
+            catch (FormatException anka)
+            {
+                MessageBox.Show("If");
+            }
+        }
+
+        public void enableButton()
+        {
+            if (textBox_ID.Enabled == false)
+            {
+                buttonAddNewCar.Enabled = false;
+            }else if(textBox_ID.Enabled == true)
+            {
+                buttonAddNewCar.Enabled = true;
+            }
+        }
+
+
     }
 }

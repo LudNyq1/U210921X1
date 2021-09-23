@@ -16,7 +16,7 @@ namespace CarSeller_V2
 
         public override string ToString()
         {
-            return $"{Make} {Model}";
+            return $"{Make} {Model} {Year}";
         }
     }
 
